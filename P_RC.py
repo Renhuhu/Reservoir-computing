@@ -72,7 +72,7 @@ def predict(A, Win, res_params, states_nearfuture, Wout):
     predict = Wout.dot(output_states.T)
     return predict
 
-data = np.load('./data/lorenz_63.npy')
+data = np.load('lorenz_63.npy')
 
 states_nearfuture,Wout,A,Win = train_reservoir(res_params,data[:res_params['train_length'],:])
 
