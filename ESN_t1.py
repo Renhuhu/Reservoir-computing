@@ -4,13 +4,10 @@
 import numpy as np
 import scipy.sparse as sparse
 from scipy.sparse import linalg
-# import pandas as pd
-import time
 import matplotlib.pyplot as plt
 
 shift_k = 0
 approx_res_size = 1000
-
 
 model_params = {'tau': 0.025,
                 'nstep': 1000,
@@ -78,7 +75,7 @@ def predict(A, Win, res_params, x, Wout):
         x = np.squeeze(np.asarray(x1))
     return output, x
 
-data = np.load('./data/lorenz_63.npy')
+data = np.load('lorenz_63.npy')
 data = np.transpose(data)
 x,Wout,A,Win = train_reservoir(res_params,data[:,shift_k:shift_k+res_params['train_length']])
 
